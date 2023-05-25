@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="New Assignment">
+        <div class="slds-p-around_small">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2 slds-p-around_small" >
+                    <lightning-input class="titleCls" type="text" name="Title" label="Title" onchange={handleTitle} required="true"></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                    <lightning-input class="descriptionCls" type="text" name="Description" label="Description" onchange={handleDescription} required="true"></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                    <lightning-input class="dateCls" type="date" name="DueDate" label="DueDate" onchange={handleDueDate} required="true"></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                    <lightning-combobox class="statusCls" name="status" label="Status" value={statusValue}  onchange={handleStatus} placeholder="-Select-" options={statusOptions} required="true"></lightning-combobox>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-m-around_medium">
+            <lightning-button class="slds-align_absolute-center" label="Submit" onclick={submit} ></lightning-button>
+        </div>
+    </lightning-card>
+    
+</template>

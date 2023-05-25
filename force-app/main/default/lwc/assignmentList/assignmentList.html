@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Assignment List">
+        <div class="slds-m-around_medium">
+            <lightning-layout>
+                <lightning-layout-item>
+                    <lightning-input type="search" label="Search By Title" onchange={handleSearch}></lightning-input>
+                </lightning-layout-item>
+                
+                <lightning-layout-item flexibility="grow"></lightning-layout-item>
+
+                <lightning-layout-item>
+                    <lightning-button-icon icon-name="utility:refresh" onclick={refreshComponent} alternative-text="Refresh" class="slds-p-around_xx-small"></lightning-button-icon>
+                </lightning-layout-item>
+            </lightning-layout>
+            <template if:true={records}>
+                <lightning-datatable data={records} columns={columns} key-field="Id"
+                hide-checkbox-column="true" show-row-number-column="true">
+                </lightning-datatable>
+            </template>
+        </div>
+
+        <div class="slds-m-around_medium">
+            <p class="slds-m-around_medium">{startingRecord} to {endingRecord} of {totalRecordCount}. Page {page} of {totalPage}</p>
+        </div>
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={handlePrevious}></lightning-button>
+            </lightning-layout-item>
+                <lightning-layout-item flexibility="grow"></lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-button label="Next" icon-name="utility:chevronright" onclick={handleNext}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
